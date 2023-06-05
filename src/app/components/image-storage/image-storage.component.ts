@@ -11,11 +11,11 @@ type SortIcons = {
 }
 
 @Component({
-  selector: 'app-images-display',
-  templateUrl: './images-display.component.html',
-  styleUrls: ['./images-display.component.scss']
+  selector: 'app-image-storage',
+  templateUrl: './image-storage.component.html',
+  styleUrls: ['./image-storage.component.scss']
 })
-export class ImagesDisplayComponent {
+export class ImageStorageComponent {
   private draggingIndex?: number
   public query: string = ''
   public storedImages: StoredImage[] = []

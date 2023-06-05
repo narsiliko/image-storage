@@ -17,7 +17,7 @@
   .items {
     margin-top: 10px;
     
-    app-stored-image-card[draggable=true] {
+    app-storage-card[draggable=true] {
       cursor: grab;
     }
   }

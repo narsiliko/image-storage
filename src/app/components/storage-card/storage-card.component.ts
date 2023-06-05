@@ -2,11 +2,11 @@ import { Component, Input } from '@angular/core';
 import { LocalStorageService } from 'src/app/core/api/localStorage/local-storage.service';
 
 @Component({
-  selector: 'app-stored-image-card',
-  templateUrl: './stored-image-card.component.html',
-  styleUrls: ['./stored-image-card.component.scss']
+  selector: 'app-storage-card',
+  templateUrl: './storage-card.component.html',
+  styleUrls: ['./storage-card.component.scss']
 })
-export class StoredImageCardComponent {
+export class StorageCardComponent {
   @Input() id: string = ''
   @Input() title: string = ''
   @Input() url: string = ''

@@ -8,11 +8,11 @@ import { GiphyService } from 'src/app/core/api/giphy/giphy.service';
 import { SearchGifsResponse } from 'src/app/core/api/giphy/giphy';
 
 @Component({
-  selector: 'app-images-search',
-  templateUrl: './images-search.component.html',
-  styleUrls: ['./images-search.component.scss']
+  selector: 'app-image-search',
+  templateUrl: './image-search.component.html',
+  styleUrls: ['./image-search.component.scss']
 })
-export class ImagesSearchComponent {
+export class ImageSearchComponent {
   private searchResultInitial: SearchGifsResponse = {
     data: [],
     meta: {

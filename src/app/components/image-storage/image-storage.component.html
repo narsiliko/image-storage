@@ -37,7 +37,7 @@
         [nzSm]="12"
         [nzXs]="12"
       >
-        <app-stored-image-card
+        <app-storage-card
           [draggable]="query.length === 0"
           (dragstart)="imageDragStart(i)"
           (dragenter)="imageDragEnter(i)"
@@ -47,7 +47,7 @@
           [title]="item.title"
           [url]="item.url"
           [timestamp]="item.timestamp"
-        ></app-stored-image-card>
+        ></app-storage-card>
       </nz-col>
     </nz-row>
   </div>

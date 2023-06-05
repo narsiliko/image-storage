@@ -19,10 +19,10 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 
 import { AppComponent } from './app.component';
-import { ImagesSearchComponent } from './components/images-search/images-search.component';
-import { ImagesDisplayComponent } from './components/images-display/images-display.component';
-import { SearchResultCardComponent } from './components/search-result-card/search-result-card.component';
-import { StoredImageCardComponent } from './components/stored-image-card/stored-image-card.component';
+import { ImageSearchComponent } from './components/image-search/image-search.component';
+import { ImageStorageComponent } from './components/image-storage/image-storage.component';
+import { SearchCardComponent } from './components/search-card/search-card.component';
+import { StorageCardComponent } from './components/storage-card/storage-card.component';
 
 import { FilterImagesByNamePipe } from './core/pipes/filter-images-by-name.pipe';
 
@@ -32,10 +32,10 @@ registerLocaleData(en);
 @NgModule({
   declarations: [
     AppComponent,
-    ImagesSearchComponent,
-    ImagesDisplayComponent,
-    SearchResultCardComponent,
-    StoredImageCardComponent,
+    ImageSearchComponent,
+    ImageStorageComponent,
+    SearchCardComponent,
+    StorageCardComponent,
     FilterImagesByNamePipe
   ],
   imports: [
