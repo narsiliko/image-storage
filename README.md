@@ -1,19 +1,23 @@
-# ImagesStore
+# Image Storage
 
-This project made with Angular 16 and Ng-Zorro Ant Design library
+This project made with Angular 16, RxJs and Ng-Zorro Ant Design library
 
 All of the technical requirements has been done:\
 [✔] Application have only two components on one screen\
-[✔] Search and add images from Giphy with its public API\
-[✔] Search through added images by name\
-[✔] Apply sort to images by date added\
-[✔] Apply manual sort to images by drag and drop\
+[✔] Possibility of search and add images from Giphy with its public API\
+[✔] Images can be added by any way (in this solution by clicking a button)\
+[✔] Possibility of search through added images by name\
+[✔] Possibility to sort images by date added (and additionally by name)\
+[✔] Possibility to sort images manually by drag and drop (for behavioral consistency drag and drop available only when storage query string is empty)\
 [✔] Possibility of downloading images\
+[✔] Images need to be stored in localStorage\
+[✔] Search images on Giphy must exclude already added images\
 [✔] Any action does not cause page reload\
-[✔] Images stored in localStorage\
-[✔] Search images on Giphy excludes already added images\
-[✔] Images can be stored any way (in this project - by clicking a button)\
 [✔] After image added it appear in storage without page reload\
+
+## Known issues
+- Because Giphy API does not allow to exclude any image (e.g. by `id`), this functionality has been implemented on frontend side
+- Sorting of stored images in interface immediately cause sorting of them in localStorage. This behavior has been implemented for application workflow consistency. 
 
 ## Development server
 
