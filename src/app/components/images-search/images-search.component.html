@@ -1,0 +1,37 @@
+<nz-card nzBorderless="true">
+  <nz-divider nzText="Search images on Giphy"></nz-divider>
+  <div class="search" #search>
+    <nz-input-group [nzSuffix]="suffixIconSearch">
+      <input
+        type="text"
+        nz-input
+        placeholder="Type something..."
+        [(ngModel)]="query"
+        (ngModelChange)="query$.next(query)"
+      />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <span (click)="clearSearch()" nz-icon [nzType]="query.length > 0 ? 'close' : 'search'"></span>
+    </ng-template>
+    <nz-card *ngIf="query.length > 0 && searchResult.data.length > 0" class="results">
+      <nz-row [nzGutter]="[5, 5]">
+        <nz-col
+          *ngFor="let item of searchResult.data"
+          [nzXXl]="6"
+          [nzXl]="6"
+          [nzLg]="6"
+          [nzMd]="8"
+          [nzSm]="12"
+          [nzXs]="12"
+        >
+          <app-search-result-card
+            id="{{ item.id }}"
+            title="{{ item.title }}"
+            url="{{ item.images.fixed_height.url }}"
+            (addedImageId)="filterSearchResult($event)"
+          ></app-search-result-card>
+        </nz-col>
+      </nz-row>
+    </nz-card>
+  </div>
+</nz-card>

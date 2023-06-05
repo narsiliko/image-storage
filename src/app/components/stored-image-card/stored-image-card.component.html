@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="image-wrapper">
+    <img class="image" [src]="url" alt="">
+  </div>
+  <nz-tag class="title" [title]="title">{{ title }}</nz-tag>
+  <nz-tag class="timestamp">{{ timestamp | date:'YY.MM.dd HH:mm:ss' }}</nz-tag>
+  <div class="controls">
+    <button (click)="download(url)" nz-button nzType="primary" nzShape="circle"><span nz-icon nzType="download" nzTheme="outline"></span></button>
+    <button (click)="removeGif()" nz-button nzType="primary" nzShape="circle"><span nz-icon nzType="minus" nzTheme="outline"></span></button>
+  </div>
+</div>

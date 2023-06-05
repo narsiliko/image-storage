@@ -1,0 +1,13 @@
+<nz-row nzJustify="center">
+  <nz-col
+    [nzXXl]="12"
+    [nzXl]="12"
+    [nzLg]="12"
+    [nzMd]="18"
+    [nzSm]="24"
+    [nzXs]="24"
+  >
+    <app-images-search #search></app-images-search>
+    <app-images-display #store [isSearchOpen]="search.isSearchOpen"></app-images-display>
+  </nz-col>
+</nz-row>

@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="image-wrapper">
+    <img class="image" [src]="url" alt="">
+  </div>
+  <nz-tag class="title" [title]="title">{{ title }}</nz-tag>
+  <div class="controls">
+    <button (click)="addGif()" nz-button nzType="primary" nzShape="circle"><span nz-icon nzType="plus" nzTheme="outline"></span></button>
+  </div>
+</div>

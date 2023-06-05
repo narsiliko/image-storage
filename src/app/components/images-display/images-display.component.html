@@ -1,0 +1,58 @@
+<nz-card [ngClass]="{ card: true, 'blur': isSearchOpen }" nzBorderless="true">
+  <nz-divider nzText="Search images in storage"></nz-divider>
+  <nz-input-group [nzSuffix]="suffixIconSearch">
+    <input
+      type="text"
+      nz-input
+      placeholder="Type something..."
+      [(ngModel)]="query"
+      [disabled]="storedImages.length < 1"
+    />
+  </nz-input-group>
+  <ng-template #suffixIconSearch>
+    <span (click)="clearSearch()" nz-icon [nzType]="query.length > 0 ? 'close' : 'search'"></span>
+  </ng-template>
+
+  <nz-empty *ngIf="storedImages.length < 1" class="no-images" nzNotFoundContent="No images stored"></nz-empty>
+
+  <div *ngIf="storedImages.length > 0" class="sort">
+    Sort by: 
+    <button
+      *ngFor="let sortField of sortFields"
+      nz-button
+      nzType="primary"
+      nzGhost
+      (click)="sortImages(sortField.id)"
+    >
+      {{ sortField.name }} <span nz-icon nzType="{{ sortIcons[sortField.direction] }}" nzTheme="outline"></span>
+    </button>
+  </div>
+
+  <nz-empty *ngIf="storedImages.length > 0 && (storedImages | filterImagesByName:query).length === 0" class="no-images" nzNotFoundContent="No images found"></nz-empty>
+
+  <div *ngIf="storedImages.length > 0" class="items">
+    <nz-row [nzGutter]="[5, 5]">
+      <nz-col
+        *ngFor="let item of storedImages | filterImagesByName:query; let i = index"
+        [nzXXl]="8"
+        [nzXl]="8"
+        [nzLg]="8"
+        [nzMd]="8"
+        [nzSm]="12"
+        [nzXs]="12"
+      >
+        <app-stored-image-card
+          [draggable]="query.length === 0"
+          (dragstart)="imageDragStart(i)"
+          (dragenter)="imageDragEnter(i)"
+          (dragover)="imageDragOver($event)"
+          (dragend)="imageDragEnd()"
+          [id]="item.id"
+          [title]="item.title"
+          [url]="item.url"
+          [timestamp]="item.timestamp"
+        ></app-stored-image-card>
+      </nz-col>
+    </nz-row>
+  </div>
+</nz-card>
