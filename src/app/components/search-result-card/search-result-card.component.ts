@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 import { LocalStorageService } from 'src/app/core/api/localStorage/local-storage.service';
 
 @Component({
@@ -10,6 +11,7 @@ export class SearchResultCardComponent {
   @Input() id: string = ''
   @Input() title: string = ''
   @Input() url: string = ''
+
   @Output() addedImageId: EventEmitter<string> = new EventEmitter<string>()
 
   constructor(

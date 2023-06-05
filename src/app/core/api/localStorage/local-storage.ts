@@ -2,22 +2,19 @@ export interface StoredImage {
   id: string
   title: string
   url: string
-}
-
-export interface StoredImageRecord extends StoredImage {
   timestamp: number
 }
 
-export type ImageSortDirection = 'asc' | 'desc' | 'none'
+export type SortingDirection = 'asc' | 'desc' | 'none'
 
-export type FieldsAvailableForSort = keyof Omit<StoredImageRecord, 'id' | 'url'>
+export type SortableFields = keyof Omit<StoredImage, 'id' | 'url'>
 
-export type SortFactor = {
-  [key in ImageSortDirection]: number
+export type SortingFactor = {
+  [key in SortingDirection]: number
 }
 
-export interface ImageSortField {
-  id: FieldsAvailableForSort
+export interface SortingField {
+  id: SortableFields
   name: string
-  direction: ImageSortDirection
+  direction: SortingDirection
 }

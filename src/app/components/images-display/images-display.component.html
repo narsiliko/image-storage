@@ -12,9 +12,7 @@
   <ng-template #suffixIconSearch>
     <span (click)="clearSearch()" nz-icon [nzType]="query.length > 0 ? 'close' : 'search'"></span>
   </ng-template>
-
   <nz-empty *ngIf="storedImages.length < 1" class="no-images" nzNotFoundContent="No images stored"></nz-empty>
-
   <div *ngIf="storedImages.length > 0" class="sort">
     Sort by: 
     <button
@@ -27,9 +25,7 @@
       {{ sortField.name }} <span nz-icon nzType="{{ sortIcons[sortField.direction] }}" nzTheme="outline"></span>
     </button>
   </div>
-
   <nz-empty *ngIf="storedImages.length > 0 && (storedImages | filterImagesByName:query).length === 0" class="no-images" nzNotFoundContent="No images found"></nz-empty>
-
   <div *ngIf="storedImages.length > 0" class="items">
     <nz-row [nzGutter]="[5, 5]">
       <nz-col

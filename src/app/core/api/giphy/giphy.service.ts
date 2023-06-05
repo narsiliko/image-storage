@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Observable, catchError, map, throwError } from 'rxjs';
-import { ISearchGifsResponse } from './giphy';
+
 import { LocalStorageService } from '../localStorage/local-storage.service';
+
+import { SearchGifsResponse } from './giphy';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +17,8 @@ export class GiphyService {
     private localStorageService: LocalStorageService
   ) { }
 
-  public searchGifs(q: string): Observable<ISearchGifsResponse> {
-    return this.http.get<ISearchGifsResponse>('https://api.giphy.com/v1/gifs/search', {
+  public searchGifs(q: string): Observable<SearchGifsResponse> {
+    return this.http.get<SearchGifsResponse>('https://api.giphy.com/v1/gifs/search', {
       params: {
         api_key: 'jj5xQx7FGbz9cukapEp4PHJ5PL9YJLEg',
         q,
@@ -26,8 +29,8 @@ export class GiphyService {
     )
   }
 
-  public searchGifsMock(q: string): Observable<ISearchGifsResponse> {
-    return this.http.get<ISearchGifsResponse>('/assets/giphy.json')
+  public searchGifsMock(_: string): Observable<SearchGifsResponse> {
+    return this.http.get<SearchGifsResponse>('/assets/giphy.json')
       .pipe(
         map(response => {
           const storedImagesIds: string[] = this.localStorageService.read().reduce((acc: string[], image) => [...acc, image.id], [])

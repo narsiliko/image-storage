@@ -1,8 +1,11 @@
 import { Component, ElementRef, Output, Renderer2, ViewChild } from '@angular/core';
+
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { ISearchGifsResponse } from 'src/app/core/api/giphy/giphy';
+
 import { GiphyService } from 'src/app/core/api/giphy/giphy.service';
+
+import { SearchGifsResponse } from 'src/app/core/api/giphy/giphy';
 
 @Component({
   selector: 'app-images-search',
@@ -10,7 +13,7 @@ import { GiphyService } from 'src/app/core/api/giphy/giphy.service';
   styleUrls: ['./images-search.component.scss']
 })
 export class ImagesSearchComponent {
-  private searchResultInitial: ISearchGifsResponse = {
+  private searchResultInitial: SearchGifsResponse = {
     data: [],
     meta: {
       status: 0,
@@ -26,7 +29,7 @@ export class ImagesSearchComponent {
 
   public query: string = ''
   public query$: Subject<string> = new Subject()
-  public searchResult: ISearchGifsResponse = this.searchResultInitial
+  public searchResult: SearchGifsResponse = this.searchResultInitial
 
   @ViewChild('search') search!: ElementRef
 

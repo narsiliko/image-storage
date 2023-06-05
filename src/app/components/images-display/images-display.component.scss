@@ -5,20 +5,20 @@
   &.blur {
     filter: blur(5px);
   }
-}
 
-.sort {
-  margin-top: 10px;
-}
+  .sort {
+    margin-top: 10px;
+  }
 
-.no-images {
-  margin-top: 30px;
-}
+  .no-images {
+    margin-top: 30px;
+  }
 
-.items {
-  margin-top: 10px;
-}
-
-app-stored-image-card[draggable=true] {
-  cursor: grab;
+  .items {
+    margin-top: 10px;
+    
+    app-stored-image-card[draggable=true] {
+      cursor: grab;
+    }
+  }
 }

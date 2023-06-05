@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
-import { StoredImageRecord, ImageSortField, FieldsAvailableForSort, ImageSortDirection } from 'src/app/core/api/localStorage/local-storage';
+
 import { LocalStorageService } from 'src/app/core/api/localStorage/local-storage.service';
+
+import { StoredImage, SortingField, SortableFields, SortingDirection } from 'src/app/core/api/localStorage/local-storage';
 
 type AvailableIcons = 'arrow-up' | 'arrow-down' | 'dash'
 
 type SortIcons = {
-  [key in ImageSortDirection]: AvailableIcons
+  [key in SortingDirection]: AvailableIcons
 }
 
 @Component({
@@ -16,8 +18,8 @@ type SortIcons = {
 export class ImagesDisplayComponent {
   private draggingIndex?: number
   public query: string = ''
-  public storedImages: StoredImageRecord[] = []
-  public sortFields: ImageSortField[] = [
+  public storedImages: StoredImage[] = []
+  public sortFields: SortingField[] = [
     {
       id: 'timestamp',
       name: 'Date added',
@@ -53,7 +55,7 @@ export class ImagesDisplayComponent {
   /**
    * sortImages
    */
-  public sortImages(id: FieldsAvailableForSort) {
+  public sortImages(id: SortableFields) {
     const sortFieldIndex = this.sortFields.findIndex(field => field.id === id)
 
     if (this.sortFields[sortFieldIndex].direction !== 'asc') {

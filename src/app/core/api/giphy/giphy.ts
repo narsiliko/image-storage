@@ -1,10 +1,10 @@
-export interface ISearchGifsResponse {
+export interface SearchGifsResponse {
   data: Data[]
   pagination: Pagination
   meta: Meta
 }
 
-export interface Data {
+interface Data {
   type: string
   id: string
   url: string
@@ -28,7 +28,7 @@ export interface Data {
   analytics: Analytics
 }
 
-export interface Images {
+interface Images {
   original: Original
   downsized: Downsized
   downsized_large: DownsizedLarge
@@ -55,7 +55,7 @@ export interface Images {
   hd?: Hd
 }
 
-export interface Original {
+interface Original {
   height: string
   width: string
   size: string
@@ -68,62 +68,42 @@ export interface Original {
   hash: string
 }
 
-export interface Downsized {
+interface Downsized {
   height: string
   width: string
   size: string
   url: string
 }
 
-export interface DownsizedLarge {
+interface DownsizedLarge {
   height: string
   width: string
   size: string
   url: string
 }
 
-export interface DownsizedMedium {
+interface DownsizedMedium {
   height: string
   width: string
   size: string
   url: string
 }
 
-export interface DownsizedSmall {
+interface DownsizedSmall {
   height: string
   width: string
   mp4_size: string
   mp4: string
 }
 
-export interface DownsizedStill {
+interface DownsizedStill {
   height: string
   width: string
   size: string
   url: string
 }
 
-export interface FixedHeight {
-  height: string
-  width: string
-  size: string
-  url: string
-  mp4_size: string
-  mp4: string
-  webp_size: string
-  webp: string
-}
-
-export interface FixedHeightDownsampled {
-  height: string
-  width: string
-  size: string
-  url: string
-  webp_size: string
-  webp: string
-}
-
-export interface FixedHeightSmall {
+interface FixedHeight {
   height: string
   width: string
   size: string
@@ -134,21 +114,16 @@ export interface FixedHeightSmall {
   webp: string
 }
 
-export interface FixedHeightSmallStill {
+interface FixedHeightDownsampled {
   height: string
   width: string
   size: string
   url: string
+  webp_size: string
+  webp: string
 }
 
-export interface FixedHeightStill {
-  height: string
-  width: string
-  size: string
-  url: string
-}
-
-export interface FixedWidth {
+interface FixedHeightSmall {
   height: string
   width: string
   size: string
@@ -159,16 +134,21 @@ export interface FixedWidth {
   webp: string
 }
 
-export interface FixedWidthDownsampled {
+interface FixedHeightSmallStill {
   height: string
   width: string
   size: string
   url: string
-  webp_size: string
-  webp: string
 }
 
-export interface FixedWidthSmall {
+interface FixedHeightStill {
+  height: string
+  width: string
+  size: string
+  url: string
+}
+
+interface FixedWidth {
   height: string
   width: string
   size: string
@@ -179,75 +159,95 @@ export interface FixedWidthSmall {
   webp: string
 }
 
-export interface FixedWidthSmallStill {
+interface FixedWidthDownsampled {
+  height: string
+  width: string
+  size: string
+  url: string
+  webp_size: string
+  webp: string
+}
+
+interface FixedWidthSmall {
+  height: string
+  width: string
+  size: string
+  url: string
+  mp4_size: string
+  mp4: string
+  webp_size: string
+  webp: string
+}
+
+interface FixedWidthSmallStill {
   height: string
   width: string
   size: string
   url: string
 }
 
-export interface FixedWidthStill {
+interface FixedWidthStill {
   height: string
   width: string
   size: string
   url: string
 }
 
-export interface Looping {
+interface Looping {
   mp4_size: string
   mp4: string
 }
 
-export interface OriginalStill {
+interface OriginalStill {
   height: string
   width: string
   size: string
   url: string
 }
 
-export interface OriginalMp4 {
-  height: string
-  width: string
-  mp4_size: string
-  mp4: string
-}
-
-export interface Preview {
-  height: string
-  width: string
-  mp4_size: string
-  mp4: string
-}
-
-export interface PreviewGif {
-  height: string
-  width: string
-  size: string
-  url: string
-}
-
-export interface PreviewWebp {
-  height: string
-  width: string
-  size: string
-  url: string
-}
-
-export interface N480wStill {
-  height: string
-  width: string
-  size: string
-  url: string
-}
-
-export interface Hd {
+interface OriginalMp4 {
   height: string
   width: string
   mp4_size: string
   mp4: string
 }
 
-export interface User {
+interface Preview {
+  height: string
+  width: string
+  mp4_size: string
+  mp4: string
+}
+
+interface PreviewGif {
+  height: string
+  width: string
+  size: string
+  url: string
+}
+
+interface PreviewWebp {
+  height: string
+  width: string
+  size: string
+  url: string
+}
+
+interface N480wStill {
+  height: string
+  width: string
+  size: string
+  url: string
+}
+
+interface Hd {
+  height: string
+  width: string
+  mp4_size: string
+  mp4: string
+}
+
+interface User {
   avatar_url: string
   banner_image: string
   banner_url: string
@@ -260,31 +260,31 @@ export interface User {
   is_verified: boolean
 }
 
-export interface Analytics {
+interface Analytics {
   onload: Onload
   onclick: Onclick
   onsent: Onsent
 }
 
-export interface Onload {
+interface Onload {
   url: string
 }
 
-export interface Onclick {
+interface Onclick {
   url: string
 }
 
-export interface Onsent {
+interface Onsent {
   url: string
 }
 
-export interface Pagination {
+interface Pagination {
   total_count: number
   count: number
   offset: number
 }
 
-export interface Meta {
+interface Meta {
   status: number
   msg: string
   response_id: string
