@@ -30,12 +30,14 @@ export class ImageSearchComponent {
   public query: string = ''
   public query$: Subject<string> = new Subject()
   public searchResult: SearchGifsResponse = this.searchResultInitial
+  public isSearching: boolean = false
+  public isEmpty: boolean = false
 
   @ViewChild('search') search!: ElementRef
 
   @Output()
   get isSearchOpen(): boolean {
-    return this.query.length > 0 && this.searchResult.data.length > 0
+    return this.query.length > 0 && this.searchResult.data.length > 0 || this.isSearching || this.isEmpty
   }
 
   constructor(
@@ -54,10 +56,10 @@ export class ImageSearchComponent {
 
     this.query$
       .pipe(
-        debounceTime(500)
+        debounceTime(300)
       )
       .subscribe(_ => {
-        this.doSearchGifs()
+        this.searchGifs()
       })
   }
 
@@ -82,16 +84,28 @@ export class ImageSearchComponent {
     }, 0)
   }
 
-  private doSearchGifs(): void {
-    this.giphyService.searchGifsMock(this.query)
-      .subscribe(result => {
-        this.searchResult = result
-      })
+  private searchGifs(): void {
+    this.isEmpty = false
+    this.searchResult = this.searchResultInitial
+
+    if (this.query.length > 0) {
+      this.isSearching = true
+      
+      this.giphyService.searchGifsMock(this.query)
+        .subscribe(result => {
+          this.searchResult = result
+          this.isSearching = false
+          if (result.data.length === 0) {
+            this.isEmpty = true
+          }
+        })
+    }
   }
 
   private keydownListener(event: KeyboardEvent) {
     if (event.key === 'Escape') {
       this.searchResult = this.searchResultInitial
+      this.isEmpty = false
     }
   }
 }

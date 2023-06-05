@@ -13,7 +13,9 @@
     <ng-template #suffixIconSearch>
       <span (click)="clearSearch()" nz-icon [nzType]="query.length > 0 ? 'close' : 'search'"></span>
     </ng-template>
-    <nz-card *ngIf="query.length > 0 && searchResult.data.length > 0" class="results">
+    <nz-card class="results" *ngIf="query.length > 0 && searchResult.data.length > 0 || isSearching || isEmpty">
+      <nz-spin class="loader" [nzSpinning]="isSearching" nzTip="Searching..."></nz-spin>
+      <nz-empty *ngIf="isEmpty" nzNotFoundContent="No images found"></nz-empty>
       <nz-row [nzGutter]="[5, 5]">
         <nz-col
           *ngFor="let item of searchResult.data"

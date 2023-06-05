@@ -17,6 +17,7 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
 
 import { AppComponent } from './app.component';
 import { ImageSearchComponent } from './components/image-search/image-search.component';
@@ -50,7 +51,8 @@ registerLocaleData(en);
     NzCardModule,
     NzTagModule,
     NzDividerModule,
-    NzEmptyModule
+    NzEmptyModule,
+    NzSpinModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

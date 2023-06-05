@@ -24,6 +24,11 @@ export class ImageStorageComponent {
       id: 'timestamp',
       name: 'Date added',
       direction: 'none'
+    },
+    {
+      id: 'title',
+      name: 'Name',
+      direction: 'none'
     }
   ]
   public sortIcons: SortIcons = {
@@ -57,6 +62,12 @@ export class ImageStorageComponent {
    */
   public sortImages(id: SortableFields) {
     const sortFieldIndex = this.sortFields.findIndex(field => field.id === id)
+
+    this.sortFields.forEach((field, index) => {
+      if (field.id !== id) {
+        this.sortFields[index].direction = 'none'
+      }
+    })
 
     if (this.sortFields[sortFieldIndex].direction !== 'asc') {
       this.sortFields[sortFieldIndex].direction = 'asc'

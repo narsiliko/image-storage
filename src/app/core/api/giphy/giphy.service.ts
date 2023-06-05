@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Observable, catchError, map, throwError } from 'rxjs';
+import { Observable, catchError, delay, map, throwError } from 'rxjs';
 
 import { LocalStorageService } from '../localStorage/local-storage.service';
 
@@ -41,6 +41,7 @@ export class GiphyService {
             pagination: response.pagination
           }
         }),
+        delay(1000),
         catchError(err => throwError(err))
       )
   }

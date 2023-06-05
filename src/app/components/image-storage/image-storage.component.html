@@ -14,7 +14,7 @@
   </ng-template>
   <nz-empty *ngIf="storedImages.length < 1" class="no-images" nzNotFoundContent="No images stored"></nz-empty>
   <div *ngIf="storedImages.length > 0" class="sort">
-    Sort by: 
+    <span>Sort by:</span>
     <button
       *ngFor="let sortField of sortFields"
       nz-button
