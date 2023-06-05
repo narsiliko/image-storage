@@ -12,8 +12,9 @@ All of the technical requirements has been done:\
 [✔] Possibility of downloading images\
 [✔] Images need to be stored in localStorage\
 [✔] Search images on Giphy must exclude already added images\
-[✔] Any action does not cause page reload\
 [✔] After image added it appear in storage without page reload\
+[✔] Any action does not cause page reload\
+[✔] After page reload state should be preserved
 
 ## Known issues
 - Because Giphy API does not allow to exclude any image (e.g. by `id`), this functionality has been implemented on frontend side
