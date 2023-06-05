@@ -91,7 +91,7 @@ export class ImageSearchComponent {
     if (this.query.length > 0) {
       this.isSearching = true
       
-      this.giphyService.searchGifsMock(this.query)
+      this.giphyService.searchGifs(this.query)
         .subscribe(result => {
           this.searchResult = result
           this.isSearching = false
